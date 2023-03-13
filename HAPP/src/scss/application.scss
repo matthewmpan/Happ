@@ -1,0 +1,476 @@
+
+$lightOrange: #FFCA08;
+$darkOrange: #F57921;
+$lightBlue: #ACCEEC;
+$darkBlue: #398BD4;
+
+// body {
+  // background: black;
+  // color: white;
+// }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
+
+input, button {
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #53565A;
+}
+
+form {
+  display: block;
+  position: relative;
+}
+
+form:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: 1;
+  background-image: linear-gradient(to bottom right, #FFCE00, #FE4880)
+}
+
+form .form-inner {
+  position: relative;
+  display: block;
+  background-color: #FFF;
+  padding: 30px;
+  z-index: 2;
+}
+
+form .form-inner h2 {
+  color: #888;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+form .form-inner .formgroup {
+  display: block;
+  width: 300px;
+  margin-bottom: 15px;
+}
+
+.form-inner .form-group label {
+  display: block;
+  color: #666;
+  font-size: 12px;
+  margin-bottom: 5px;
+  transition: 0.4s;
+}
+
+.form-inner .form-group:focus-within label {
+  color: #FE4880;
+}
+
+form .form-inner .form-group input {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #F8F8F8;
+  border-radius: 8px;
+  transition: 0.4s;
+}
+
+form .form-inner .form-group input:focus {
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+}
+
+form .form-inner input[type="submit"],
+.welcome button {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-image: linear-gradient(to right, #FFCE00 50%, #FFCE00 50%, #FE4880);
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.4s;
+  color: #FFF;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+form .form-inner input[type="submit"]:hover,
+.welcome button:hover {
+  background-position: 100% 0%;
+}
+
+.welcome {
+  width: 100%;
+  max-width: 480px;
+  background-color: #fff;
+  padding: 15px 30px;
+}
+
+.welcome h2 {
+  color: #888;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.welcome h2 span {
+  color: #FE4880;
+  font-weight: 700;
+}
+
+
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+
+
+
+
+
+body {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: black;
+  color: #e4e4e4;
+}
+
+.mainSection {
+  margin-bottom: 5rem;
+}
+
+.adsPageOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.adsPageOptions button {
+  width: 100%;
+  max-width: 200px;
+  font-size: 14px;
+  padding: 1rem 1.5rem;
+}
+
+.card {
+  color: black;
+  background: #f3f3f3;
+  padding: 2rem;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 5px rgba(22, 22, 22, 0.915);
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* button options */
+.btnMain {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e4e4e4;
+  background: steelblue;
+  border: 1px solid steelblue;
+  padding: 0.5rem 2rem;
+  border-radius: 7px;
+}
+
+.btnSecondary {
+  background: #f3f3f3;
+  padding: 0.6rem 2rem;
+  margin-left: 9rem;
+  margin-right: 3.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.btnSecondaryTwo {
+  display: block;
+  background: #f3f3f3;
+  padding: 0.6rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 auto;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  border-radius: 7px;
+}
+
+.btnSecondaryThree {
+  color: steelblue;
+  background: #f3f3f3;
+  border: 1px solid steelblue;
+  padding: 0.6rem 2rem;
+  margin-left: 30rem;
+  margin-right: 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 7px;
+}
+
+#dayLabel {
+  background: #f3f3f3;
+  padding: 0.5rem 1rem;
+  margin-left: 3.5rem;
+  color: black;
+  font-weight: 600;
+}
+
+#daySelector {
+  background: #f3f3f3;
+  margin-left: 1rem;
+  font-weight: 600;
+}
+
+.btnLg {
+  height: 5rem;
+}
+
+/* character photo */
+.adPhoto {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+#happLogo {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+// .adPhoto img {
+//   width: 128px;
+//   height: 128px;
+// }
+
+/* custom character styles */
+.customRestaurantContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.customizeRestaurant {
+  max-width: 60rem;
+  width: 100%;
+  align-self: center;
+}
+
+/* create character styles */
+.createRestaurantContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.createRestaurant {
+  max-width: 50em;
+  width: 100%;
+  align-self: center;
+  border-radius: 7px;
+}
+
+.createRestaurant h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.createRestaurant label {
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.createRestaurant input {
+  border: 1px solid;
+  width: 600px;
+  height: 30px;
+  border-radius: 4px;
+  margin: 2px;
+}
+
+.createRestaurantFields {
+  width: 100%;
+  display: flex;
+  margin-bottom: 0.2rem;
+}
+
+.createRestaurantFields label {
+  min-width: 8rem;
+  width: 10rem;
+}
+
+.checkboxLabel {
+  font-size: 1.2rem;
+}
+
+.createRestaurantButtonContainer {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.errorMsg {
+  color: red;
+  margin-left: 1rem;
+  font-size: 1.1rem;
+  padding-top: 0.2rem;
+}
+
+
+/* ad container */
+.adContainer {
+  padding: 1rem 3rem;
+  display: grid;
+}
+
+/* ad card container */
+.AdCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0.5rem;
+}
+
+/* ad card header */
+.AdHeadContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.AdHeadContainer div {
+  width: 100%;
+}
+
+.AdName {
+  margin: auto;
+  margin-top: 30px;
+  font-family: 'Rock Salt', cursive;
+  font-size: 1.9rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 2.9rem;
+}
+
+.AdDetailsList {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.adDetail{
+  margin: 10px 0;
+  font-size: 1.3rem;
+}
+
+/* ad card photo */
+.adCard .adPhoto {
+  justify-content: center;
+}
+
+/* ad buttons */
+.adBtnOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.adBtnOptions .space {
+  margin-bottom: 1rem;
+}
+
+.adBtnOptions button {
+  width: 100%;
+}
+
+.footer {
+  margin-bottom: 10rem;
+}
+
+.footer h3 {
+  margin-bottom: 2rem;
+}
+
+.footer h3, p {
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.footerUnderline {
+  text-decoration: underline;
+}
+
+#happCrop {
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+}
+
+.adDeleteButton {
+  border: 1px solid grey;
+  width: 8rem;
+  height: 2rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  align-self: center;
+}
+
+/*
+  MEDIA QUERIES
+  0 - 600px - Mobile phones
+  600 - 900px - Tablet portrait
+  900 - 1200px - Tablet landscape
+  1200 - 1800px - Desktop - normal styles
+  1800px + Large desktop
+*/
+/* Mobile */
+@media screen and (max-width: 600px) {
+  .adContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .adCard .adPhoto {
+    justify-content: flex-start;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+  .adContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Normal */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+  .adContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Lg Screen */
+@media screen and (min-width: 1201px) {
+  .adContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
