@@ -1,28 +1,19 @@
 import React from 'react';
 
-const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-
 const AdCard = ({id, info, day, deleteRes}) => {
   
   const {image, name, address, phone, description, hours} = info;
+  const weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
   const deleteRestaurant = () => {
-    console.log('in deleteRestaurant')
-    // check if name is empty
-    
-    // const body = {
-    //   name
-    // };
     fetch(`/api/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'Application/JSON'
       },
-      // body: JSON.stringify(body)
     })
       .then(resp => resp.json())
       .then((data) => {
-        // console.log(data);
         deleteRes(id);
       })
       .catch(err => console.log('DeleteRestaurant ERROR: ', err));

@@ -7,8 +7,6 @@ import Feed from './components/Feed.jsx';
 import NoPage from './components/NoPage.jsx';
 import Footer from './components/Footer.jsx';
 
-
-
 function App(props) {
 
   // const adminUser = {

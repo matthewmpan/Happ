@@ -5,7 +5,6 @@ const happController = {};
 happController.getUser = (req, res, next) => {
   models.User.find()
     .then((data) => {
-      //console.log('data', data[0]);
       res.locals.user = data;
       next();
     })
@@ -33,10 +32,8 @@ happController.addUser = (req, res, next) => {
 };
 
 happController.getHappy = (req, res, next) => {
-  // models.Restaurant.find({ _id: req.query.id })
   models.Restaurant.find()
     .then((data) => {
-      //console.log('data', data);
       res.locals.restaurants = data;
       next();
     })

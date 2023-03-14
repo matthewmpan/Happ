@@ -1,107 +1,69 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AdCard from './AdCard.jsx';
 import SelectDay from './SelectDay.jsx';
 
-class Ads extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      fetchedAds: false,
-      ads: [],
-      day: new Date().getDay(),
-    };
-    this.selectDay = this.selectDay.bind(this);
-    this.deleteRestaurant = this.deleteRestaurant.bind(this);
+function Ads() {
+
+  const [fetchedAds, setFetchedAds] = useState(false);
+  const [ads, setAds] = useState([]);
+  const [adsJSX, setAdsJSX] = useState([]);
+  const [day, setDay] = useState(new Date().getDay());
+
+  function selectDay(event) {
+    setDay(Number(event.target.value))
   }
 
-  selectDay(event) {
-    this.setState({day: Number(event.target.value)});
+  function deleteRestaurant(id) {
+    const newAdsList = ads.filter(ad => ad._id !== id.toString());
+    setAds(newAdsList);
   }
 
-  deleteRestaurant(id) {
-    const newList = this.state.ads.filter(ad => ad._id !== id)
-    this.setState({ads: newList});
-  }
-
-  componentDidMount() {
-    
+  useEffect(() => {
     fetch('/api/happy')
-      .then(res => res.json())
-      .then((ads) => {
-        console.log(ads);
-        if (!Array.isArray(ads)) ads = [];
-        return this.setState({
-          ads,
-          fetchedAds: true
-        });
-      })
-      .catch(err => console.log('Ads.componentDidMount: get ads: ERROR: ', err));
-  }
+    .then(res => res.json())
+    .then((ads) => {
+      if (!Array.isArray(ads)) ads = [];
+      setAds(ads);
+      setFetchedAds(true);
+    })
+    .catch(err => console.log('Ads.componentDidMount: get ads: ERROR: ', err));
+  }, []);
 
-  // This was made to rerender the page after deleting a card, but it creates an infinite rerendering/fetch loop
-  // componentDidUpdate() {
-    
-  //   fetch('/api/happy')
-  //     .then(res => res.json())
-  //     .then((ads) => {
-  //       if (!Array.isArray(ads)) ads = [];
-  //       return this.setState({
-  //         ads,
-  //         fetchedAds: true
-  //       });
-  //     })
-  //     .catch(err => console.log('Ads.componentDidMount: get ads: ERROR: ', err));
-  // }
-
-
-  render() {
-
-    if (!this.state.fetchedAds) return (
-      <div>
-        <h1>Loading data, please wait...</h1>
-      </div>
-    );
-
-    const { ads } = this.state;
-
-    if (!ads) return null;
-
-    if (!ads.length) return (
-      <div>Sorry, no ads found</div>
-    );
-
-    const adElems = ads.map((ad, i) => {
+  useEffect(() => {
+    const adElems = ads.map((ad) => {
       return (
         <AdCard
-          key={i}
+          key={ad._id}
           id={ad._id}
           info={ad}
-          day={this.state.day}
-          deleteRes={this.deleteRestaurant}
+          day={day}
+          deleteRes={deleteRestaurant}
         />
       );
     });
+    setAdsJSX(adElems);
+  }, [ads]);
 
-    return (
-      <section className="mainSection">
-        <header className="pageHeader">
-          <SelectDay value={this.state.day} onChange={this.selectDay.bind(this)} />
-          <Link to={'/create'}>
-            <button
-              type="button"
-              className="btnSecondary"
-            >
-              Add a Happy Hour
-            </button>
-          </Link>
-        </header>
-        <div className="adContainer">
-          {adElems}
-        </div>
-      </section>
-    );
-  }
+  return (
+    <section className="mainSection">
+      <header className="pageHeader">
+        <SelectDay value={day} onChange={selectDay} />
+        <Link to={'/create'}>
+          <button
+            type="button"
+            className="btnSecondary"
+          >
+            Add a Happy Hour
+          </button>
+        </Link>
+      </header>
+      <div className="adContainer">
+        {adsJSX}
+      </div>
+    </section>
+  );
+
 }
 
 export default Ads;
